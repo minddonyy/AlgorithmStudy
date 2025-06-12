@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+input.txt
+
+=======
 # Created by https://www.toptal.com/developers/gitignore/api/python,pycharm,visualstudiocode,visualstudio,c++,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,pycharm,visualstudiocode,visualstudio,c++,macos
 
@@ -763,3 +767,4 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm,visualstudiocode,visualstudio,c++,macos
+>>>>>>> 724df303116a392efe2772db57ab41f7fe3795cb

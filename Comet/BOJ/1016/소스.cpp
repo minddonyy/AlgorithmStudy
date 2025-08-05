@@ -1,12 +1,12 @@
 using namespace std;
 #include <iostream>
 #include <vector>
-#include <unordered_map>
+
 int main()
 {
 	long long start, end;
 	cin >> start >> end;
-	unordered_map<long long, bool> can;
+	vector<bool> can(end - start + 2, 0);
 	for (long long i = 2; i <= end; ++i) {
 		long long sq = i * i;
 		if (sq > end) break;
@@ -16,12 +16,12 @@ int main()
 		startpoint *= sq;
 
 		for (long long j = startpoint; j <= end; j += sq) {
-			can[j] = 1;
+			can[j - start] = 1;
 		}
 	}
 	long long result = 0;
 	for (long long i = start; i <= end; ++i) {
-		if (can[i] == 0) {
+		if (can[i - start] == 0) {
 			++result;
 		}
 	}

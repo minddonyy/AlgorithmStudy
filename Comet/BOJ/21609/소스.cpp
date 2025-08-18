@@ -9,6 +9,7 @@ int length, color_num, result = 0;
 vector<vector<int>> arr;
 int dy[4] = { 0, 0, -1, 1 };
 int dx[4] = { 1, -1, 0, 0 };
+// ë””ë²„ê¹…ìš© í”„ë¦°íŠ¸ í•¨ìˆ˜
 void print() {
 	for (int i = 0; i < length; ++i) {
 		for (int j = 0; j < length; ++j) {
@@ -61,7 +62,7 @@ bool proirity(vector<yx>& ret, vector<yx>& remove, int& rainbow_cnt, int& rain) 
 
 }
 vector<yx> find() {
-	// ¹«Áö°³ ºí·°Àº Áßº¹ Å½»öÀÌ °¡´ÉÇÏ´Ï ¸Þ¸ð...
+	//               ßº  Å½          Ï´   Þ¸ ...
 	vector<yx> rainbow;
 	for (int i = 0; i < length; ++i) {
 		for (int j = 0; j < length; ++j) {
@@ -103,12 +104,12 @@ vector<yx> find() {
 					}
 				}
 			}
-			// bfs ÈÄ °á°ú ºñ±³
+			// bfs          
 			if (proirity(ret, remove, rainbow_cnt, rain) == 1) {
 				swap(ret, remove);
 				swap(rainbow_cnt, rain);
 			}
-			// Áßº¹Å½»ö Çã¿ëÇØ¾ßÇÏ´Ï ¹«Áö°³ ºí·°Àº ¹æ¹®Ã³¸® ÃÊ±âÈ­.
+			//  ßº Å½       Ø¾  Ï´                æ¹®Ã³    Ê± È­.
 			for (auto& dat : rainbow) {
 				visited[dat.y][dat.x] = 0;
 			}
@@ -166,22 +167,22 @@ int main()
 
 	while (true)
 	{
-		// 1. Å©±â°¡ °¡Àå Å« ºí·Ï ±×·ìÀ» Ã£´Â´Ù. ±×·¯ÇÑ ºí·Ï ±×·ìÀÌ ¿©·¯ °³¶ó¸é Æ÷ÇÔµÈ ¹«Áö°³ ºí·ÏÀÇ ¼ö°¡ °¡Àå ¸¹Àº ºí·Ï ±×·ì, ±×·¯ÇÑ ºí·Ïµµ ¿©·¯°³¶ó¸é ±âÁØ ºí·ÏÀÇ ÇàÀÌ °¡Àå Å« °ÍÀ», ±× °Íµµ ¿©·¯°³ÀÌ¸é ¿­ÀÌ °¡Àå Å« °ÍÀ» Ã£´Â´Ù.
+		// 1. Å© â°¡      Å«      ×·    Ã£ Â´ .  ×·         ×·                  Ôµ                                   ×· ,  ×·      Ïµ                                 Å«     ,     Íµ         Ì¸            Å«      Ã£ Â´ .
 		vector<yx> ret = find();
 		if (ret.size() <= 1) {
 			break;
 		}
-		// 2. 1¿¡¼­ Ã£Àº ºí·Ï ±×·ìÀÇ ¸ðµç ºí·ÏÀ» Á¦°ÅÇÑ´Ù. ºí·Ï ±×·ì¿¡ Æ÷ÇÔµÈ ºí·ÏÀÇ ¼ö¸¦ B¶ó°í ÇßÀ» ¶§, B2Á¡À» È¹µæÇÑ´Ù.
+		// 2. 1     Ã£        ×·                   Ñ´ .      ×·ì¿¡    Ôµ             B           , B2     È¹   Ñ´ .
 		remove(ret);
 		//cout << result << endl;
 		//print();
-		// 3. °ÝÀÚ¿¡ Áß·ÂÀÌ ÀÛ¿ëÇÑ´Ù. °ËÀº»ö ºí·ÏÀº Á¦ÀÚ¸® À¯Áö.
+		// 3.    Ú¿   ß·     Û¿  Ñ´ .                 Ú¸      .
 		gravity();
 		//print();
-		// 4. °ÝÀÚ°¡ 90µµ ¹Ý½Ã°è ¹æÇâÀ¸·Î È¸ÀüÇÑ´Ù.
+		// 4.    Ú°  90    Ý½Ã°           È¸   Ñ´ .
 		rotate();
 		//print();
-		// 5. ´Ù½Ã °ÝÀÚ¿¡ Áß·ÂÀÌ ÀÛ¿ëÇÑ´Ù.
+		// 5.  Ù½     Ú¿   ß·     Û¿  Ñ´ .
 		gravity();
 		//print();
 	}
